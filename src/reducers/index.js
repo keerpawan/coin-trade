@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 import btcValue from './btc-value';
 
 const rootReducer = combineReducers({
-    btcValue
+  btcValue,
 });
 
 export default rootReducer;

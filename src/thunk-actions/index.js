@@ -1,21 +1,21 @@
-import services from "../services";
-import actions from "../actions";
+import services from '../services';
+import actions from '../actions';
 
 const {
-    btcValueFetchFailed, btcValueRequested, updateBTCValue
+  btcValueFetchFailed, btcValueRequested, updateBTCValue,
 } = actions;
 
-export const fetchBTCAmount = () => {
-    return (dispatch) => {
-        dispatch(btcValueRequested());
+const fetchBTCAmount = () => (dispatch) => {
+  dispatch(btcValueRequested());
 
-        return services.fetchPrice().then(
-            (response) => {
-                dispatch(updateBTCValue(response.last_price));
-            },
-            (error) => {
-                dispatch(btcValueFetchFailed(error));
-            }
-        );
-    };
+  return services.fetchPrice().then(
+    (response) => {
+      dispatch(updateBTCValue(response.last_price));
+    },
+    (error) => {
+      dispatch(btcValueFetchFailed(error));
+    },
+  );
 };
+
+export default { fetchBTCAmount };
