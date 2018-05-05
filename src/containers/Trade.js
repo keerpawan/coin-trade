@@ -1,17 +1,18 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { updateBTCAmount } from '../actions';
+import {fetchBTCAmount} from '../thunk-actions';
 
-const Trade = ({ inputAmount, btcAmount, onAmountChange }) => {
+const Trade = ({inputAmount, btcValue, onAmountChange}) => {
     let input;
-    console.log(`re-render: ${btcAmount}`);
     return (
         <div>
             <input
                 type='text'
                 value={inputAmount}
-                ref={node => {input = node;}}
+                ref={node => {
+                    input = node;
+                }}
                 onChange={() => onAmountChange(input.value)}
             />
         </div>
@@ -20,19 +21,19 @@ const Trade = ({ inputAmount, btcAmount, onAmountChange }) => {
 
 Trade.propTypes = {
     inputAmount: PropTypes.number,
-    btcAmount: PropTypes.number.isRequired
+    btcValue: PropTypes.number
 };
 
 const mapStateToProps = (state) => {
     return {
         inputAmount: state.inputAmount,
-        btcAmount: state.btcAmount
+        btcValue: state.btcValue.value
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAmountChange: (inputAmount) => dispatch(updateBTCAmount(inputAmount))
+        onAmountChange: () => dispatch(fetchBTCAmount())
     }
 };
 

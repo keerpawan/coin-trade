@@ -1,8 +1,3 @@
-import { actions } from '../constants';
+import btcValue from './btc-value';
 
-export const updateBTCAmount = (inputAmount) => {
-    return {
-        type: actions.UPDATE_BTC,
-        inputAmount
-    }
-};
+export default { ...btcValue }
