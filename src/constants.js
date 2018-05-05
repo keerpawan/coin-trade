@@ -1,4 +1,4 @@
-const actions = {
+export default {
   UPDATE_BTC: 'UPDATE_BTC',
   INIT: 'INIT',
   fetch_status: {
@@ -6,8 +6,4 @@ const actions = {
     FAILURE: '_FAILURE',
     SUCCESS: '_SUCCESS',
   },
-};
-
-export default {
-  actions,
 };

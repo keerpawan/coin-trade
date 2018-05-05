@@ -1,3 +1,3 @@
-import btcValue from './btc-value';
+import btcRate from './btc-rate';
 
-export default { ...btcValue };
+export default { ...btcRate };
