@@ -10,7 +10,7 @@ export default usd => (dispatch) => {
 
   return services.fetchPrice().then(
     (response) => {
-      dispatch(updateBTCRate(response.last_price, usd));
+      dispatch(updateBTCRate(response.data.last_price, usd));
     },
     (error) => {
       dispatch(btcRateFetchFailed(error));
