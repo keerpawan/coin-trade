@@ -30,7 +30,7 @@ export default (state = initState, action) => {
       const btc = usd / rate;
 
       return Object.assign({}, state, {
-        error: false, errorMessage: undefined, rate, usd, btc, inputAmount
+        error: false, errorMessage: undefined, rate, usd, btc, inputAmount,
       });
     }
     default:
