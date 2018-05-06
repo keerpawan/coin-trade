@@ -6,11 +6,11 @@
 .app-body {
     padding: 1em 2em;
     background: RGB(246, 246, 246);
-    width: 14em;
 }
 
 .section {
     padding-left: 0.6em;
+    padding-right: 0.6em;
 }
 
 .section-heading {
@@ -29,11 +29,13 @@
 .input-row {
     padding-bottom: 0.5em;
     padding-top: 0.5em;
+    display: grid;
 }
 
 input {
     padding: 0.5em 1em;
     font-size: 1em;
+    box-sizing : border-box;
 }
 
 ::placeholder {
