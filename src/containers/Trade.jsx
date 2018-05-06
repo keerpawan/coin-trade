@@ -8,19 +8,15 @@ import Input from './Input'
 const {fetchBTCRate} = thunkActions
 const {updateBTCAmount} = actions
 
-const Trade = ({rate, loading, btcValue, fetchBTCRate}) => {
-  const fn = inputAmount => {
-    if (!rate && !loading) {
-      fetchBTCRate()
-    } else {
-      updateBTCAmount(inputAmount)
-    }
+const Trade = ({rate, loading, btcValue, fetchBTCRate, updateBTCAmount}) => {
+  if (!rate && !loading) {
+    fetchBTCRate()
   }
   return (
     <div>
       <div className='section-heading'>Trade</div>
       <Input value='USD' readonly='true'/>
-      <Input placeholder='Enter your amount' onchange={fn}
+      <Input placeholder='Enter your amount' onchange={updateBTCAmount}
              readonly={loading ? 'true' : undefined}/>
       <div className='section-heading'>For</div>
       <Input value='BTC' readonly='true'/>
@@ -44,6 +40,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchBTCRate: () => dispatch(fetchBTCRate()),
+  updateBTCAmount: inputAmount => dispatch(updateBTCAmount(inputAmount)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Trade)

@@ -48,7 +48,7 @@ describe('test btc-trade reducer', () => {
     expect(newState).toEqual(expectedState)
   })
 
-  it.only('should return updated state for action UPDATE_BTC_AMOUNT', () => {
+  it('should return updated state for action UPDATE_BTC_AMOUNT', () => {
     const state = {rate: 100.00, loading:false}
     const expectedState = {
       error: false,
