@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({value, placeholder, readonly, tabindex, onchange }) => {
+const Input = ({value, placeholder, readonly, onchange }) => {
   let input
   return (
     <div className='input-row'>
@@ -16,7 +16,6 @@ Input.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   readonly: PropTypes.string,
-  tabindex: PropTypes.number,
   onclick: PropTypes.func,
 }
 
