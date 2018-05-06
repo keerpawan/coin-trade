@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Account from './Account';
 import Trade from './Trade';
+import TradeCTA from './Trade-CTA';
 import '../styles/App.css';
 
 // This is the main App Component
@@ -11,8 +13,9 @@ class App extends Component {
         <div className="App-header">
           <h1>Coin Trade</h1>
         </div>
-
+        <Account/>
         <Trade />
+        <TradeCTA/>
       </div>
     );
   }

@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import thunkActions from '../thunk-actions';
 const { fetchBTCRate } = thunkActions;
 
@@ -26,13 +26,13 @@ const Trade = ({ inputAmount, btcValue, onAmountChange }) => {
 };
 
 Trade.propTypes = {
-  inputAmount: PropTypes.number,
+  inputAmount: PropTypes.string.isRequired,
   btcValue: PropTypes.number.isRequired,
-  onAmountChange: PropTypes.func
+  onAmountChange: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  inputAmount: state.btcTrade.usd,
+  inputAmount: state.btcTrade.inputAmount,
   btcValue: state.btcTrade.btc,
 });
 
