@@ -5,12 +5,12 @@ const {
   btcRateFetchFailed, btcRateRequested, updateBTCRate,
 } = actions;
 
-export default usd => (dispatch) => {
+export default () => (dispatch) => {
   dispatch(btcRateRequested());
 
   return services.fetchPrice().then(
     (response) => {
-      dispatch(updateBTCRate(response.data.last_price, usd));
+      dispatch(updateBTCRate(response.data.last_price));
     },
     (error) => {
       dispatch(btcRateFetchFailed(error));

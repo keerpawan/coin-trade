@@ -3,7 +3,9 @@ import constants from '../constants';
 const {
   INIT,
   UPDATE_BTC,
-  fetch_status: { REQUEST, FAILURE, SUCCESS },
+  type: {
+    REQUEST, FAILURE, SUCCESS, AMOUNT,
+  },
 } = constants;
 
 const initState = {
@@ -13,6 +15,7 @@ const initState = {
   error: false,
   errorMessage: undefined,
   rate: undefined,
+  loading: false,
 };
 
 export default (state = initState, action) => {
@@ -20,20 +23,32 @@ export default (state = initState, action) => {
     case INIT:
       return initState;
     case `${UPDATE_BTC}${REQUEST}`:
-      return state;
+      return Object.assign({}, state, { loading: true });
     case `${UPDATE_BTC}${FAILURE}`:
       return Object.assign(
         {}, state,
-        { error: true, errorMessage: action.error },
+        { error: true, errorMessage: action.error, loading: false },
       );
     case `${UPDATE_BTC}${SUCCESS}`: {
-      const { rate: rateString, usd: inputAmount } = action;
+      const { rate: rateString } = action;
       const rate = parseFloat(rateString);
+      return Object.assign({}, state, {
+        error: false, errorMessage: undefined, rate, loading: false,
+      });
+    }
+    case `${UPDATE_BTC}${AMOUNT}`: {
+      if (state.loading || !state.rate) return state;
+      const { usd: inputAmount } = action;
       const usd = inputAmount ? parseFloat(inputAmount) : 0;
-      const btc = usd ? (usd / rate) : undefined;
+      const btc = usd ? (usd / state.rate) : undefined;
 
       return Object.assign({}, state, {
-        error: false, errorMessage: undefined, rate, usd, btc, inputAmount,
+        error: false,
+        errorMessage: undefined,
+        usd,
+        btc,
+        inputAmount,
+        loading: false,
       });
     }
     default:

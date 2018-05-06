@@ -3,12 +3,14 @@ import constants from '../constants';
 const {
   INIT,
   UPDATE_BTC,
-  fetch_status: { REQUEST, FAILURE, SUCCESS },
+  type: {
+    REQUEST, FAILURE, SUCCESS, AMOUNT,
+  },
 } = constants;
 
 const resetTrade = () => ({
-  type: INIT
-})
+  type: INIT,
+});
 
 const btcRateRequested = () => ({
   type: `${UPDATE_BTC}${REQUEST}`,
@@ -19,9 +21,13 @@ const btcRateFetchFailed = error => ({
   error,
 });
 
-const updateBTCRate = (rate, usd) => ({
+const updateBTCRate = rate => ({
   type: `${UPDATE_BTC}${SUCCESS}`,
   rate,
+});
+
+const updateBTCAmount = usd => ({
+  type: `${UPDATE_BTC}${AMOUNT}`,
   usd,
 });
 
@@ -30,4 +36,5 @@ export default {
   btcRateRequested,
   btcRateFetchFailed,
   updateBTCRate,
+  updateBTCAmount,
 };

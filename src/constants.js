@@ -2,9 +2,10 @@ export default {
   UPDATE_BTC: 'UPDATE_BTC',
   UPDATE_ACCOUNT: 'UPDATE_ACCOUNT',
   INIT: 'INIT',
-  fetch_status: {
+  type: {
     REQUEST: '_REQUEST',
     FAILURE: '_FAILURE',
     SUCCESS: '_SUCCESS',
+    AMOUNT: '_AMOUNT',
   },
 };
