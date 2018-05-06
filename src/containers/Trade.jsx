@@ -27,11 +27,12 @@ const Trade = ({ inputAmount, btcValue, onAmountChange }) => {
 
 Trade.propTypes = {
   inputAmount: PropTypes.number,
-  btcValue: PropTypes.number,
+  btcValue: PropTypes.number.isRequired,
+  onAmountChange: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  inputAmount: state.btcTrade.usd.isRequired,
+  inputAmount: state.btcTrade.usd,
   btcValue: state.btcTrade.btc,
 });
 

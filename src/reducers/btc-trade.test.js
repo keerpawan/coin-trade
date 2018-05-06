@@ -3,6 +3,16 @@ import btcTrade from './btc-trade';
 
 
 describe('test btc-trade reducer', () => {
+  it('should return init state', () => {
+    expect(btcTrade(undefined, {})).toEqual({
+        usd: undefined,
+        btc: 0.00,
+        error: false,
+        errorMessage: undefined,
+        rate: undefined,
+    });
+  });
+
   it('should return same state for action UPDATE_BTC_REQUEST', () => {
     const state = {};
     const action = { type: 'UPDATE_BTC_REQUEST' };

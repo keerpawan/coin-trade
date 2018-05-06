@@ -6,8 +6,8 @@ const {
 } = constants;
 
 const initState = {
-  usd: 0.00,
-  btc: undefined,
+  usd: undefined,
+  btc: 0.00,
   error: false,
   errorMessage: undefined,
   rate: undefined,
@@ -18,9 +18,10 @@ export default (state = initState, action) => {
     case `${UPDATE_BTC}${REQUEST}`:
       return state;
     case `${UPDATE_BTC}${FAILURE}`:
-      return Object.assign({}, state, { error: true, errorMessage: action.error });
+      return Object.assign({}, state,
+        {error: true, errorMessage: action.error});
     case `${UPDATE_BTC}${SUCCESS}`: {
-      const { rate: rateString, usd: usdString } = action;
+      const {rate: rateString, usd: usdString} = action;
       const rate = parseFloat(rateString);
       const usd = parseFloat(usdString);
       const btc = usd / rate;
