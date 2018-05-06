@@ -37,6 +37,19 @@ describe('test account reducer', () => {
     expect(newState).toEqual(expectedState)
   })
 
+  it('should subtract usd, add btc and set isEmpty as true up to 2 decimal places', () => {
+    const state = {usd: 1.001, btc: 0.00}
+    const action = {type: 'UPDATE_ACCOUNT', takeUSD: 1.00, addBTC: 1.00}
+    const newState = account(state, action)
+    const expectedState = {
+      usd: 0.00,
+      btc: 1.00,
+      isEmpty: true,
+      notEnoughBalanceError: false,
+    }
+    expect(newState).toEqual(expectedState)
+  })
+
   it('should set notEnoughBalanceError as true', () => {
     const state = {usd: 1.00, btc: 0.00, isEmpty: false}
     const action = {type: 'UPDATE_ACCOUNT', takeUSD: 2.00, addBTC: 2.00}

@@ -50,6 +50,10 @@ input {
     letter-spacing: 0.2em;
 }
 
+.button-grey {
+    background: darkgrey !important;
+}
+
 @keyframes app-logo-spin {
     from {
         transform: rotate(0deg);

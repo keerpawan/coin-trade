@@ -8,7 +8,7 @@ const Account = ({usd, btc, isEmpty}) => {
     <div>
       <div className='section-heading'>Account Balance</div>
       <div className='section-account-detail'>
-        <AccountDetail text='USD' value={isEmpty ? '0 [Account Empty]' : usd}/>
+        <AccountDetail text='USD' value={isEmpty ? '0.00 [Account Empty]' : usd}/>
         <AccountDetail text='BTC' value={btc}/>
       </div>
     </div>
@@ -16,13 +16,13 @@ const Account = ({usd, btc, isEmpty}) => {
 }
 
 Account.propTypes = {
-  usd: PropTypes.number.isRequired,
+  usd: PropTypes.string.isRequired,
   btc: PropTypes.string.isRequired,
   isEmpty: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = state => ({
-  usd: state.account.usd,
+  usd: state.account.usd.toFixed(2),
   btc: state.account.btc.toFixed(8),
   isEmpty: state.account.isEmpty,
 })

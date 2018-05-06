@@ -11,7 +11,7 @@ const initState = {
 
 const account = (state = initState, action) => {
   if (action.type === UPDATE_ACCOUNT && !state.isEmpty && action.takeUSD) {
-    const usd = state.usd - action.takeUSD;
+    const usd = parseFloat((state.usd - action.takeUSD).toFixed(2));
     if (usd < 0.00) {
       return Object.assign({}, state, { notEnoughBalanceError: true });
     }
