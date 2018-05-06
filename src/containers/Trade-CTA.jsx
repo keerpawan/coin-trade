@@ -19,7 +19,7 @@ const TradeCTA = ({takeUSD, addBTC, accountIsEmpty, notEnoughBalanceError, updat
 
 TradeCTA.propTypes = {
   takeUSD: PropTypes.number.isRequired,
-  addBTC: PropTypes.number.isRequired,
+  addBTC: PropTypes.number,
   accountIsEmpty: PropTypes.bool.isRequired,
   notEnoughBalanceError: PropTypes.bool.isRequired,
   updateAccount: PropTypes.func.isRequired,

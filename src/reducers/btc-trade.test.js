@@ -3,9 +3,9 @@ import btcTrade from './btc-trade';
 
 describe('test btc-trade reducer', () => {
   const expectedInitState = {
-    inputAmount: '0',
+    inputAmount: undefined,
     usd: 0.00,
-    btc: 0.00,
+    btc: undefined,
     error: false,
     errorMessage: undefined,
     rate: undefined,

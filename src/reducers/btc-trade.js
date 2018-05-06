@@ -7,9 +7,9 @@ const {
 } = constants;
 
 const initState = {
-  inputAmount: '0',
+  inputAmount: undefined,
   usd: 0.00,
-  btc: 0.00,
+  btc: undefined,
   error: false,
   errorMessage: undefined,
   rate: undefined,

@@ -11,23 +11,23 @@ const Trade = ({inputAmount, btcValue, onAmountChange}) => {
     <div>
       <div className="section-heading">Trade</div>
       <Input value="USD" readonly="true"/>
-      <Input value={inputAmount} onchange={onAmountChange}/>
+      <Input value={inputAmount} placeholder="Enter your amount" onchange={onAmountChange}/>
       <div className="section-heading">For</div>
       <Input value="BTC" readonly="true"/>
-      <Input value={btcValue} readonly="true"/>
+      <Input value={btcValue} placeholder="Display Quote" readonly="true"/>
     </div>
   )
 }
 
 Trade.propTypes = {
-  inputAmount: PropTypes.string.isRequired,
-  btcValue: PropTypes.string.isRequired,
+  inputAmount: PropTypes.string,
+  btcValue: PropTypes.string,
   onAmountChange: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
   inputAmount: state.btcTrade.inputAmount,
-  btcValue: state.btcTrade.btc.toFixed(8),
+  btcValue: state.btcTrade.btc ? state.btcTrade.btc.toFixed(8): state.btcTrade.btc,
 })
 
 const mapDispatchToProps = dispatch => ({
