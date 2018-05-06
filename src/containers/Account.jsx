@@ -6,12 +6,11 @@ import AccountDetail from './Account-detail'
 const Account = ({usd, btc, isEmpty}) => {
   return (
     <div>
-      <div className="section-heading">Account Balance</div>
-      <div className="section-account-detail">
-        <AccountDetail text='USD' value={usd}/>
+      <div className='section-heading'>Account Balance</div>
+      <div className='section-account-detail'>
+        <AccountDetail text='USD' value={isEmpty ? '0 [Account Empty]' : usd}/>
         <AccountDetail text='BTC' value={btc}/>
       </div>
-      {isEmpty ? <div>Account Empty</div> : ''}
     </div>
   )
 }

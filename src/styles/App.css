@@ -1,5 +1,5 @@
 .app-header {
-    width: 30em;
+    width: 17em;
     font-size: 1em;
 }
 
@@ -7,6 +7,10 @@
     padding: 1em 2em;
     background: RGB(246, 246, 246);
     width: 13em;
+}
+
+.section {
+    padding-left: 0.2em;
 }
 
 .section-heading {

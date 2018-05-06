@@ -10,7 +10,7 @@ const initState = {
 };
 
 const account = (state = initState, action) => {
-  if (action.type === UPDATE_ACCOUNT && !state.isEmpty) {
+  if (action.type === UPDATE_ACCOUNT && !state.isEmpty && action.takeUSD) {
     const usd = state.usd - action.takeUSD;
     if (usd < 0.00) {
       return Object.assign({}, state, { notEnoughBalanceError: true });

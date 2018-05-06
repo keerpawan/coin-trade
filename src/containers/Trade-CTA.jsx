@@ -11,8 +11,8 @@ const TradeCTA = ({takeUSD, addBTC, accountIsEmpty, notEnoughBalanceError, updat
 
   return (
     <div>
-      {notEnoughBalanceError ? <div>Not Enough Balance</div> : ''}
-      <input type='button' value='TRADE' onClick={performTrade} disabled={accountIsEmpty}/>
+      {notEnoughBalanceError ? <div className='section-heading'>Not Enough Balance</div> : ''}
+      <input className='cta' type='button' value='TRADE' onClick={performTrade} disabled={accountIsEmpty}/>
     </div>
   )
 }

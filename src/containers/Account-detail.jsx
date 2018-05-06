@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const AccountDetail = ({text, value}) => {
   return (
-    <div className="account-row">{text} {value}</div>
+    <div className='account-row'>{text} {value}</div>
   )
 }
 

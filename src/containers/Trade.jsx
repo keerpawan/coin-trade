@@ -9,12 +9,12 @@ const {fetchBTCRate} = thunkActions
 const Trade = ({inputAmount, btcValue, onAmountChange}) => {
   return (
     <div>
-      <div className="section-heading">Trade</div>
-      <Input value="USD" readonly="true"/>
-      <Input value={inputAmount} placeholder="Enter your amount" onchange={onAmountChange}/>
-      <div className="section-heading">For</div>
-      <Input value="BTC" readonly="true"/>
-      <Input value={btcValue} placeholder="Display Quote" readonly="true"/>
+      <div className='section-heading'>Trade</div>
+      <Input value='USD' readonly='true'/>
+      <Input value={inputAmount} placeholder='Enter your amount' onchange={onAmountChange}/>
+      <div className='section-heading'>For</div>
+      <Input value='BTC' readonly='true'/>
+      <Input value={btcValue} placeholder='Display Quote' readonly='true'/>
     </div>
   )
 }
@@ -27,7 +27,7 @@ Trade.propTypes = {
 
 const mapStateToProps = state => ({
   inputAmount: state.btcTrade.inputAmount,
-  btcValue: state.btcTrade.btc ? state.btcTrade.btc.toFixed(8): state.btcTrade.btc,
+  btcValue: state.btcTrade.btc ? state.btcTrade.btc.toFixed(8): '',
 })
 
 const mapDispatchToProps = dispatch => ({
