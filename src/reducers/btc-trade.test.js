@@ -64,6 +64,20 @@ describe('test btc-trade reducer', () => {
     expect(newState).toEqual(expectedState)
   })
 
+  it('should return same state for action UPDATE_BTC_AMOUNT when rate is missing', () => {
+    const state = {loading:false}
+    const action = {type: 'UPDATE_BTC_AMOUNT', usd: '100'}
+    const newState = btcTrade(state, action)
+    expect(newState).toEqual(state)
+  })
+
+  it('should return same state for action UPDATE_BTC_AMOUNT when loading is true', () => {
+    const state = {rate:'100', loading: true}
+    const action = {type: 'UPDATE_BTC_AMOUNT', usd: '100'}
+    const newState = btcTrade(state, action)
+    expect(newState).toEqual(state)
+  })
+
   it('should reset for action INIT', () => {
     const state = {}
     const action = {type: 'INIT'}
