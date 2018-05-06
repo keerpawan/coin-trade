@@ -1,9 +1,14 @@
 import constants from '../constants';
 
 const {
+  INIT,
   UPDATE_BTC,
   fetch_status: { REQUEST, FAILURE, SUCCESS },
 } = constants;
+
+const resetTrade = () => ({
+  type: INIT
+})
 
 const btcRateRequested = () => ({
   type: `${UPDATE_BTC}${REQUEST}`,
@@ -21,6 +26,7 @@ const updateBTCRate = (rate, usd) => ({
 });
 
 export default {
+  resetTrade,
   btcRateRequested,
   btcRateFetchFailed,
   updateBTCRate,

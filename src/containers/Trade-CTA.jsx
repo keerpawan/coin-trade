@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import actions from '../actions'
 
-const TradeCTA = ({takeUSD, addBTC, accountIsEmpty, notEnoughBalanceError, updateAccount}) => {
+const TradeCTA = ({takeUSD, addBTC, accountIsEmpty, notEnoughBalanceError, updateAccount, resetInput}) => {
+  const performTrade = () => {
+    updateAccount(takeUSD, addBTC);
+    resetInput();
+  }
+
   return (
     <div>
       {notEnoughBalanceError ? <div>Not Enough Balance</div> : ''}
-      <input type='button' value='TRADE' onClick={() => updateAccount(takeUSD, addBTC)} disabled={accountIsEmpty}/>
+      <input type='button' value='TRADE' onClick={performTrade} disabled={accountIsEmpty}/>
     </div>
   )
 }
@@ -16,8 +21,9 @@ TradeCTA.propTypes = {
   takeUSD: PropTypes.number.isRequired,
   addBTC: PropTypes.number.isRequired,
   accountIsEmpty: PropTypes.bool.isRequired,
-  updateAccount: PropTypes.func.isRequired,
   notEnoughBalanceError: PropTypes.bool.isRequired,
+  updateAccount: PropTypes.func.isRequired,
+  resetInput: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -30,6 +36,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateAccount: (takeUSD, addBTC) => dispatch(
     actions.updateAccount(takeUSD, addBTC)),
+  resetInput: () => dispatch(actions.resetTrade())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeCTA)

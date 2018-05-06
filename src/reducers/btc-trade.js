@@ -1,12 +1,13 @@
 import constants from '../constants';
 
 const {
+  INIT,
   UPDATE_BTC,
   fetch_status: { REQUEST, FAILURE, SUCCESS },
 } = constants;
 
 const initState = {
-  inputAmount: '',
+  inputAmount: '0',
   usd: 0.00,
   btc: 0.00,
   error: false,
@@ -16,6 +17,8 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
+    case INIT:
+      return initState;
     case `${UPDATE_BTC}${REQUEST}`:
       return state;
     case `${UPDATE_BTC}${FAILURE}`:
