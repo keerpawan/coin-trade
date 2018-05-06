@@ -1,13 +1,38 @@
-.App-logo {
-    width: 14%
+.app-header {
+    width: 30em;
+    font-size: 1em;
 }
 
-.App-header {
-    padding: 25px;
-    border-bottom: solid 0.5px RGB(226, 226, 226);
+.app-body {
+    padding: 1em 2em;
+    background: RGB(246, 246, 246);
+    width: 13em;
 }
 
-@keyframes App-logo-spin {
+.section-heading {
+    font-size: 0.8em;
+    padding-left: 0.5em;
+}
+
+.section-account-detail {
+    padding: 1em;
+}
+
+.account-row {
+    font-size: 1em;
+}
+
+.input-row {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+input {
+    padding: 0.5em 1em;
+    font-size: 1em;
+}
+
+@keyframes app-logo-spin {
     from {
         transform: rotate(0deg);
     }

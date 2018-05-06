@@ -9,14 +9,16 @@ import '../styles/App.css'
 class App extends Component {
   render () {
     return (
-      <div className="App">
-        <div className="App-header">
+      <div className="app">
+        <div className="app-header">
           <h1>Coin Trade</h1>
         </div>
-        <Account/>
-        <br/>
-        <Trade/>
-        <TradeCTA/>
+
+        <div className="app-body">
+          <Account/>
+          <Trade/>
+          <TradeCTA/>
+        </div>
       </div>
     )
   }
