@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Account from './Account'
-import Trade from './Trade'
-import TradeCTA from './Trade-CTA'
-import '../styles/App.css'
+import Account from './containers/Account'
+import Trade from './containers/Trade'
+import TradeCTA from './containers/Trade-CTA'
+import './styles/App.css'
 
 // This is the main App Component
 // It loads all the child components need to display the page
