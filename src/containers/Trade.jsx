@@ -8,7 +8,7 @@ import Input from './Input'
 const {fetchBTCRate} = thunkActions
 const {updateBTCAmount} = actions
 
-const Trade = ({inputAmount, rate, loading, btcValue, fetchBTCRate, updateBTCAmount}) => {
+const Trade = ({resetUSDAmount, rate, loading, btcValue, fetchBTCRate, updateBTCAmount}) => {
   if (!rate && !loading) {
     fetchBTCRate()
   }
@@ -17,7 +17,7 @@ const Trade = ({inputAmount, rate, loading, btcValue, fetchBTCRate, updateBTCAmo
       <div className='section-heading'>Trade</div>
       <Input value='USD' readonly='true'/>
       <Input placeholder='Enter your amount' onchange={updateBTCAmount}
-             clearInput={!inputAmount} readonly={loading ? 'true' : undefined}/>
+             clearInput={resetUSDAmount} readonly={loading ? 'true' : undefined}/>
       <div className='section-heading'>For</div>
       <Input value='BTC' readonly='true'/>
       <Input value={btcValue} placeholder='Display Quote' readonly='true'/>
@@ -26,7 +26,7 @@ const Trade = ({inputAmount, rate, loading, btcValue, fetchBTCRate, updateBTCAmo
 }
 
 Trade.propTypes = {
-  inputAmount: PropTypes.string,
+  resetUSDAmount: PropTypes.bool.isRequired,
   btcValue: PropTypes.string,
   rate: PropTypes.number,
   loading: PropTypes.bool.isRequired,
@@ -35,7 +35,7 @@ Trade.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  inputAmount: state.btcTrade.inputAmount,
+  resetUSDAmount: !state.btcTrade.inputAmount,
   btcValue: state.btcTrade.btc ? state.btcTrade.btc.toFixed(8) : '',
   rate: state.btcTrade.rate,
   loading: state.btcTrade.loading,
