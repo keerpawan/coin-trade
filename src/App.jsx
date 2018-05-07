@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Account from './containers/Account'
-import Trade from './containers/Trade'
-import TradeCTA from './containers/Trade-CTA'
+import Account from './components/Account'
+import Trade from './components/Trade'
+import TradeCTA from './components/Trade-CTA'
 import './styles/App.css'
 
 // This is the main App Component

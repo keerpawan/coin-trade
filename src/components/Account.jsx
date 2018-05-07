@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import AccountDetail from './Account-detail'
+import AccountRow from './Account-row'
 
 const Account = ({usd, btc, isEmpty}) => {
   return (
     <div>
       <div className='section-heading'>Account Balance</div>
       <div className='section-account-detail'>
-        <AccountDetail text='USD' value={isEmpty ? '0.00 [Account Empty]' : usd}/>
-        <AccountDetail text='BTC' value={btc}/>
+        <AccountRow text='USD' value={isEmpty ? '0.00 [Account Empty]' : usd}/>
+        <AccountRow text='BTC' value={btc}/>
       </div>
     </div>
   )

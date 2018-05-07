@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({type='text', clearInput, value, placeholder, readonly, onchange}) => {
+const TradeRow = ({type='text', clearInput, value, placeholder, readonly, onchange}) => {
   let input;
   const inputChanged = () => {
     if (onchange && !readonly) onchange(input.value)
@@ -18,7 +18,7 @@ const Input = ({type='text', clearInput, value, placeholder, readonly, onchange}
   )
 }
 
-Input.propTypes = {
+TradeRow.propTypes = {
   type: PropTypes.string,
   clearInput: PropTypes.bool,
   value: PropTypes.string,
@@ -27,4 +27,4 @@ Input.propTypes = {
   onchange: PropTypes.func,
 }
 
-export default Input
+export default TradeRow

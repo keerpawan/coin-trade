@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import thunkActions from '../thunk-actions'
 import actions from '../actions'
-import Input from './Input'
+import TradeRow from './Trade-row'
 
 const {fetchBTCRate} = thunkActions
 const {updateBTCAmount} = actions
@@ -15,12 +15,12 @@ const Trade = ({resetUSDAmount, rate, loading, btcValue, fetchBTCRate, updateBTC
   return (
     <div>
       <div className='section-heading'>Trade</div>
-      <Input value='USD' readonly='true'/>
-      <Input placeholder='Enter your amount' onchange={updateBTCAmount} type='number'
-             clearInput={resetUSDAmount} readonly={loading ? 'true' : undefined}/>
+      <TradeRow value='USD' readonly='true'/>
+      <TradeRow placeholder='Enter your amount' onchange={updateBTCAmount} type='number'
+                clearInput={resetUSDAmount} readonly={loading ? 'true' : undefined}/>
       <div className='section-heading'>For</div>
-      <Input value='BTC' readonly='true'/>
-      <Input value={btcValue} placeholder='Display Quote' readonly='true'/>
+      <TradeRow value='BTC' readonly='true'/>
+      <TradeRow value={btcValue} placeholder='Display Quote' readonly='true'/>
     </div>
   )
 }
