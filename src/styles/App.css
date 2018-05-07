@@ -56,6 +56,12 @@ input {
     background: darkgrey !important;
 }
 
+.error-message {
+    font-size: 1.1em;
+    color: red;
+    padding: 0.5em;
+}
+
 @keyframes app-logo-spin {
     from {
         transform: rotate(0deg);

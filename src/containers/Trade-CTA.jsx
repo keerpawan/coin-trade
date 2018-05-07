@@ -10,12 +10,10 @@ const TradeCTA = ({takeUSD, addBTC, accountIsEmpty, notEnoughBalanceError, updat
     updateAccount(takeUSD, addBTC);
     resetInput();
   }
-
   const ctaClass = 'cta ' + (accountIsEmpty ? 'button-grey' : '');
-
   return (
     <div>
-      {notEnoughBalanceError ? <div className='section-heading'>Not Enough Balance</div> : ''}
+      {notEnoughBalanceError ? <div className='section error-message'>Not Enough Balance</div> : ''}
       <input className={ctaClass} type='button' value='Trade' onClick={performTrade} disabled={accountIsEmpty}/>
     </div>
   )
