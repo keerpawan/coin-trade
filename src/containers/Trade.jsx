@@ -35,7 +35,7 @@ Trade.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  resetUSDAmount: !state.btcTrade.inputAmount,
+  resetUSDAmount: !state.btcTrade.inputAmount && !state.account.notEnoughBalanceError,
   btcValue: state.btcTrade.btc ? state.btcTrade.btc.toFixed(8) : '',
   rate: state.btcTrade.rate,
   loading: state.btcTrade.loading,
