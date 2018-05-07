@@ -15,6 +15,7 @@ const account = (state = initState, action) => {
     if (usd < 0.00) {
       return Object.assign({}, state, { notEnoughBalanceError: true });
     }
+
     const btc = state.btc + action.addBTC;
     const isEmpty = usd === 0.00;
     return {

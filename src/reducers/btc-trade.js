@@ -21,7 +21,7 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case INIT:
-      return initState;
+      return Object.assign({}, initState, { rate: state.rate });
     case `${UPDATE_BTC}${REQUEST}`:
       return Object.assign({}, state, { loading: true });
     case `${UPDATE_BTC}${FAILURE}`:
