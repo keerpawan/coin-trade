@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import actions from '../actions'
 
+const {updateAccount,resetTrade} = actions;
+
 const TradeCTA = ({takeUSD, addBTC, accountIsEmpty, notEnoughBalanceError, updateAccount, resetInput}) => {
   const performTrade = () => {
     updateAccount(takeUSD, addBTC);
@@ -36,9 +38,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateAccount: (takeUSD, addBTC) => dispatch(
-    actions.updateAccount(takeUSD, addBTC)),
-  resetInput: () => dispatch(actions.resetTrade())
+  updateAccount: (takeUSD, addBTC) => dispatch(updateAccount(takeUSD, addBTC)),
+  resetInput: () => dispatch(resetTrade())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeCTA)
