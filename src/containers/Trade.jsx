@@ -16,7 +16,7 @@ const Trade = ({resetUSDAmount, rate, loading, btcValue, fetchBTCRate, updateBTC
     <div>
       <div className='section-heading'>Trade</div>
       <Input value='USD' readonly='true'/>
-      <Input placeholder='Enter your amount' onchange={updateBTCAmount}
+      <Input placeholder='Enter your amount' onchange={updateBTCAmount} type='number'
              clearInput={resetUSDAmount} readonly={loading ? 'true' : undefined}/>
       <div className='section-heading'>For</div>
       <Input value='BTC' readonly='true'/>
