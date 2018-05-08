@@ -28,7 +28,7 @@ and you can buy BTC using your account (pre-loaded with 156.12 USD).
 * store.js: Sets up the redux store for the app. Using thunk and logger middlewares.
 * APP.jsx: Connects all the components together.
 * constants.js: Required constant variables for the app, such as redux action type.
-* thunk-actions: Redux middleware to call async function, such as API calls.
+* async-actions: Redux thunk middleware to call async function, such as API calls.
 * container: All the components that make this UI.
     * Account: Displays account information.
         * Account-row: Re-used to display USD & BTC amounts in the account.

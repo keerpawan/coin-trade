@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import thunkActions from '../thunk-actions'
+import asyncActions from '../async-actions'
 import actions from '../actions'
 import TradeRow from './Trade-row'
 
-const {fetchBTCRate} = thunkActions
+const {fetchBTCRate} = asyncActions
 const {updateBTCAmount} = actions
 
 const Trade = ({resetUSDAmount, rate, loading, btcValue, fetchBTCRate, updateBTCAmount}) => {
